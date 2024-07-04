@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,4 +23,51 @@
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Data Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" id="login-container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="user-type">User Type:</label>
+            <select id="user-type" name="user_type">
+                <option value="guest">Guest</option>
+                <option value="admin">Admin</option>
+            </select>
+            <div id="admin-password" style="display: none;">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    
+    <div class="container" id="main-container" style="display: none;">
+        <h1>Upload CSV and Analyze Data</h1>
+        <form id="upload-form" action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input type="file" id="csv-file" name="file" accept=".csv" required>
+            <button type="submit">Upload</button>
+        </form>
+        <div id="analysis">
+            <h2>Query Data</h2>
+            <select id="filter-key" name="filter_key">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+            <input type="text" id="filter-value" name="filter_value" placeholder="Enter filter value (e.g., Halo)">
+            <button type="button" onclick="queryData()">Query</button>
+        </div>
+        <div id="results"></div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
+

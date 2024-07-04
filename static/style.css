@@ -23,7 +23,7 @@ form {
     margin-bottom: 20px;
 }
 
-input[type="file"], input[type="text"] {
+input[type="file"], input[type="text"], input[type="password"], select {
     margin-bottom: 10px;
     display: block;
     width: calc(100% - 20px);
@@ -78,7 +78,7 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    input[type="text"], input[type="file"], button {
+    input[type="text"], input[type="password"], input[type="file"], button, select {
         width: 100%;
     }
 }
