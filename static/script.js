@@ -7,7 +7,7 @@ document.getElementById('upload-form').addEventListener('submit', function(e) {
     const formData = new FormData();
     formData.append('file', file);
     
-    fetch('https://flaskapp-image.onrender.com/upload', {
+    fetch('https://flask-image-koam.onrender.com/upload', {
         method: 'POST',
         body: formData
     })
@@ -24,7 +24,7 @@ function queryData() {
     const value = document.getElementById('filter-value').value;
     
     if (key && value) {
-        fetch(`https://flaskapp-image.onrender.com/query?${key}=${value}`)
+        fetch(`https://flask-image-koam.onrender.com/query?${key}=${value}`)
         .then(response => response.json())
         .then(data => {
             const resultsDiv = document.getElementById('results');
